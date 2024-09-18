@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="posttest2"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-09-17 09:56:20 PM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtMDVTOURUMUE7MjAyNC0wOS0xNzswMTozNDo0MiBBTTsyNjAw"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtMDVTOURUMUE7MjAyNC0wOS0xNzswOTo1NjoyMCBQTTs2OzI3MzY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="NamaBarang" type="String" array="False" size=""/>
+            <declare name="HargaBarang, PersenDiskon, TotalSebelumDiskon, TotalDiskon, HargaSetelahDiskon, TotalBayar" type="Real" array="False" size=""/>
+            <declare name="BanyakBarang, SisaBagiDiskon" type="Integer" array="False" size=""/>
+            <input variable="NamaBarang"/>
+            <input variable="HargaBarang"/>
+            <input variable="BanyakBarang"/>
+            <input variable="PersenDiskon"/>
+            <assign variable="TotalSebelumDiskon" expression="BanyakBarang * HargaBarang"/>
+            <assign variable="TotalDiskon" expression="(PersenDiskon / 100) * TotalSebelumDiskon"/>
+            <assign variable="HargaSetelahDiskon" expression="TotalSebelumDiskon - TotalDiskon"/>
+            <assign variable="TotalBayar" expression="HargaSetelahDiskon"/>
+            <assign variable="SisaBagiDiskon" expression="PersenDiskon % 3"/>
+            <output expression="&quot; Anda membeli &quot; &amp; BanyakBarang &amp; NamaBarang &amp; &quot; dengan harga satuan &quot; &amp; HargaBarang &amp; &quot;, total sebelum diskon adalah &quot; &amp; TotalSebelumDiskon &amp; &quot;, total diskon adalah &quot; &amp; TotalDiskon &amp; &quot;, dan total yang harus dibayar adalah &quot; &amp; TotalBayar &amp; &quot;. &quot; &amp; PersenDiskon &amp; &quot; dibagi dengan 3 sisanya &quot; &amp; SisaBagiDiskon" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
