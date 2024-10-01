@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="2409106084_Aulia Natasya_B2_Posttest3"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-01 11:57:28 PM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtMDVTOURUMUE7MjAyNC0wOS0yNDswMjowMTo1OCBQTTsyNjE1"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtMDVTOURUMUE7MjAyNC0xMC0wMTswOTo0MzowNCBQTTs1O0FTVVM7TEFQVE9QLTA1UzlEVDFBOzIwMjQtMDktMjQ7MDI6MDE6NTggUE07MjQwOTEwNjA4NF9BdWxpYSBOYXRhc3lhX0IyX1Bvc3R0ZXN0My5mcHJnOzkwMDk="/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtMDVTOURUMUE7MjAyNC0xMC0wMTsxMTo1NzoyOCBQTTsyNjsyNzcz"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="BatasLogin, JumlahLogin" type="Integer" array="False" size=""/>
+            <declare name="UsernameInput, PasswordInput, UsernameBenar, PasswordBenar, PilihanKeluar, Kategori, Ya" type="String" array="False" size=""/>
+            <declare name="BeratBadanDalamMg, TinggiBadanDalamKm, BeratBadanDalamKg, TinggiBadanDalamM, BMI" type="Real" array="False" size=""/>
+            <assign variable="BatasLogin" expression="3"/>
+            <assign variable="JumlahLogin" expression="0"/>
+            <assign variable="UsernameBenar" expression="&quot;Sasa&quot;"/>
+            <assign variable="PasswordBenar" expression="&quot;84&quot;"/>
+            <assign variable="PilihanKeluar" expression="&quot;Ya&quot;"/>
+            <while expression="jumlahLogin &lt; 3">
+                <output expression="&quot;Masukkan username anda: &quot;" newline="True"/>
+                <input variable="UsernameInput"/>
+                <output expression="&quot;Masukkan password anda: &quot;" newline="True"/>
+                <input variable="PasswordInput"/>
+                <if expression="UsernameInput == UsernameBenar AND PasswordInput == PasswordBenar">
+                    <then>
+                        <output expression="&quot;Login anda berhasil &quot;" newline="True"/>
+                        <output expression="&quot;Input berat badan dalam Mg: &quot;" newline="True"/>
+                        <input variable="BeratBadanDalamMg"/>
+                        <output expression="&quot;Input tinggi badan dalam Km: &quot;" newline="True"/>
+                        <input variable="TinggiBadanDalamKm"/>
+                        <assign variable="BeratBadanDalamKg" expression="BeratBadanDalamMg / 1000000"/>
+                        <assign variable="TinggiBadanDalamM" expression="TinggiBadanDalamKm * 1000"/>
+                        <assign variable="BMI" expression="BeratBadanDalamKg / ( TinggiBadanDalamM * TinggibadanDalamM )"/>
+                        <output expression="&quot; BMI anda adalah &quot; &amp; BMI" newline="True"/>
+                        <if expression="BMI &lt; 18.5">
+                            <then>
+                                <output expression="&quot;Anda masuk dalam kategori underweight &quot;" newline="True"/>
+                            </then>
+                            <else>
+                                <if expression="BMI &lt; 24.9">
+                                    <then>
+                                        <output expression="&quot;Anda masuk dalam kategori normal &quot;" newline="True"/>
+                                    </then>
+                                    <else>
+                                        <if expression="BMI &lt; 29.9">
+                                            <then>
+                                                <output expression="&quot;Anda masuk dalam kategori overweight &quot;" newline="True"/>
+                                            </then>
+                                            <else>
+                                                <output expression="&quot;Anda masuk dalam kategori obesitas &quot;" newline="True"/>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <output expression="&quot;Apakah anda ingin keluar? (Ya/Tidak): &quot;" newline="True"/>
+                        <input variable="PilihanKeluar"/>
+                        <if expression="PilihanKeluar == &quot;Ya&quot;">
+                            <then>
+                                <output expression="&quot;Terimakasih, program perhitungan BMI sudah selesai dijalankan &quot;" newline="True"/>
+                                <breakpoint expression="" always="True"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;Silahkan kembali ke halaman login &quot;" newline="True"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="JumlahLogin" expression="JumlahLogin + 1"/>
+                        <output expression="&quot;Login anda gagal &quot; &amp; JumlahLogin &amp; &quot;kali. &quot;" newline="True"/>
+                        <if expression="JumlahLogin &gt;= BatasLogin">
+                            <then>
+                                <output expression="&quot;Login anda gagal 3 kali, program akan berhenti &quot;" newline="True"/>
+                                <breakpoint expression="" always="True"/>
+                            </then>
+                            <else/>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
